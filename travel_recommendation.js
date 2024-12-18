@@ -9,7 +9,6 @@ function searchLocations() {
     fetch('travel_recommendation_api.json')
       .then(response => response.json())
       .then(data => {
-        /* const locations = data.find(item => item.name.toLowerCase() === input); */
         let keys = Object.keys(data);
         let types = keys.filter(e => e.includes(input.toLowerCase()))
         
@@ -18,7 +17,6 @@ function searchLocations() {
             console.log(data[type])
             if(type == 'countries') {
                 locations = [];
-                //resultDiv.innerHTML += '<h2>Countries</h1>';
                 data[type].forEach(e => {
                     e.cities.forEach(loc => {
                         locations.push(loc)
